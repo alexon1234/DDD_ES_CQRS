@@ -17,12 +17,13 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+
+            IMediator _mediator = new ServiceCollection()
+                                    .AddMediatR()
+                                    .BuildServiceProvider()
+                                    .GetService<IMediator>();
+
             string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
-
-            var services = new ServiceCollection();
-            services.AddMediatR();
-            IMediator _mediator = services.BuildServiceProvider().GetService<IMediator>();
-
             IUserRepository userRepository = new UserPostgresRepository(connectionString);
 
 
