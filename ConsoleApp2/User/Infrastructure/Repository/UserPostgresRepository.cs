@@ -1,0 +1,44 @@
+﻿using ConsoleApp2.User.Domain;
+using ConsoleApp2.User.Infrastructure.Models;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using NHibernate;
+using NHibernate.Cfg;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2.User.Repository
+{
+    public class UserPostgresRepository : IUserRepository
+    {
+        private readonly ISessionFactory _sessionFactory;
+        private readonly Configuration _configuration;
+
+        public UserPostgresRepository(string connectionString)
+        {
+            _configuration = Fluently.Configure()
+                .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString).ShowSql)
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<JobMap>())
+                .BuildConfiguration();
+
+            _sessionFactory = _configuration.BuildSessionFactory();
+        }
+
+        public async Task CreateUser(Domain.User user)
+        {
+            using (var session = _sessionFactory.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                await session.SaveAsync(user);
+                await transaction.CommitAsync();
+            }
+        }
+
+        public async Task<Domain.User> GetUserById(string id)
+        {
+            using (var session = _sessionFactory.OpenSession())
+            {
+                return await session.GetAsync<Domain.User>(id).ConfigureAwait(false);
+            }
+        }
+    }
+}

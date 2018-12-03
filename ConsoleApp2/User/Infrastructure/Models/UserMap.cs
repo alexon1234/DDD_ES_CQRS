@@ -1,0 +1,13 @@
+﻿using ConsoleApp2.User.Domain;
+using FluentNHibernate.Mapping;
+
+namespace ConsoleApp2.User.Infrastructure.Models
+{
+    public class UserMap: ClassMap<Domain.User>
+    {
+        public UserMap() {
+            Id(x => x.Id);
+            Map(x => x.Name);
+        }
+    }
+}
