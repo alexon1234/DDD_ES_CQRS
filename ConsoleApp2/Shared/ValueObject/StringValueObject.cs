@@ -15,9 +15,6 @@ namespace ConsoleApp2.Shared.ValueObject
             this.value = value;
         }
 
-        public virtual string Value
-        {
-            get { return value; }
-        }
+        public virtual string Value => value;
     }
 }

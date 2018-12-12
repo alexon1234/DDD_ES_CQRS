@@ -8,7 +8,6 @@ namespace ConsoleApp2.Notify.Domain
 {
     public class NotifyUserCreatedHandler : IEventHandler<UserCreatedEvent>, IEventHandler<UserNameUpdated>
     {
-
         public Task Handle(UserCreatedEvent notification, CancellationToken cancellationToken)
         {
             Console.WriteLine($"User is created { notification.Id} - { notification.Name }");
