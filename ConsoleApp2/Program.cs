@@ -1,15 +1,12 @@
 using System;
 using System.Configuration;
-using System.Linq;
-using System.Reflection;
+using ConsoleApp2.Shared.Domain.Events;
+using ConsoleApp2.Shared.Infrastructure.Events;
 using ConsoleApp2.User.Application;
 using ConsoleApp2.User.Domain;
-using ConsoleApp2.User.Domain.EventHandler;
-using ConsoleApp2.User.Domain.Queries;
 using ConsoleApp2.User.Repository;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using UserFinder = ConsoleApp2.User.Application.UserFinder;
 
 namespace ConsoleApp2
 {
@@ -25,15 +22,11 @@ namespace ConsoleApp2
 
             string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
             IUserRepository userRepository = new UserPostgresRepository(connectionString);
+            IEventBus eventBus = new EventBus(_mediator);
 
 
-
-            var userId = new UserId("testUser4@gmail.com");
-            new UserCreator(_mediator, userRepository).CreateUser(userId, "Test User").Wait();
-
-
-
-
+            var userId = new UserId("testUser5@gmail.com");
+            new UserUpdateName(eventBus, userRepository).UpdateUserNameAsync(userId.Value, "Test New User").Wait();
             Console.ReadKey();
 
         }

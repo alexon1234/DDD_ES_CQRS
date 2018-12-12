@@ -1,14 +1,8 @@
-﻿using ConsoleApp2.Shared.Domain.Bus.Event;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp2.Shared.Domain.Events;
 
-namespace ConsoleApp2.User.Domain
+namespace ConsoleApp2.User.Domain.Events
 {
-    public class UserCreatedEvent: INotification
+    public class UserCreatedEvent: IEvent
     {
         public string Id { get; set; }
 

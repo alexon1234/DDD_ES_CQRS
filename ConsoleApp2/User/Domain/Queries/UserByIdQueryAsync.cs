@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿
+using ConsoleApp2.Shared.Domain.Queries;
 
 namespace ConsoleApp2.User.Domain.Queries
 {
-    public class UserByIdQueryAsync: IRequest<UserByIdQueryAsyncResult>
+    public class UserByIdQueryAsync: IQuery<UserByIdQueryAsyncResult>
     {
         public long Id { get; set; }
     }

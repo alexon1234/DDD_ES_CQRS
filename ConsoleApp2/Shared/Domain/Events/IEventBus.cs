@@ -1,0 +1,9 @@
+﻿using System.Threading.Tasks;
+
+namespace ConsoleApp2.Shared.Domain.Events
+{
+    public interface IEventBus
+    {
+        Task Publish<TEvent>(params TEvent[] events) where TEvent : IEvent;
+    }
+}

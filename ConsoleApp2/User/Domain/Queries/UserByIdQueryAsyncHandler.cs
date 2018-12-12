@@ -1,14 +1,10 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ConsoleApp2.Shared.Domain.Queries;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp2.User.Domain.Queries
 {
-    public class UserByIdQueryAsyncHandler : IRequestHandler<UserByIdQueryAsync, UserByIdQueryAsyncResult>
+    public class UserByIdQueryAsyncHandler : IQueryHandler<UserByIdQueryAsync, UserByIdQueryAsyncResult>
     {
         public async Task<UserByIdQueryAsyncResult> Handle(UserByIdQueryAsync request, CancellationToken cancellationToken)
         {

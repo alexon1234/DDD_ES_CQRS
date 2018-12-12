@@ -1,15 +1,14 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using ConsoleApp2.Shared.Infrastructure.Events;
 using ConsoleApp2.User.Application;
 using ConsoleApp2.User.Domain;
 using MediatR;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using NUnit.Framework;
 
-namespace UnitTestProject1
+namespace UnitTestProject1.User.Application
 {
-    [TestClass]
     public class UserCreatorTest
     {
         private readonly Mock<IMediator> _mediator;
@@ -18,17 +17,17 @@ namespace UnitTestProject1
 
         public UserCreatorTest()
         {
-            _mediator = new Mock<IMediator>();
             _userRepository = new Mock<IUserRepository>();
-
-            _userRepository.Setup(u => u.CreateUser(It.IsAny<User>()))
+            _mediator = new Mock<IMediator>();
+            _userRepository.Setup(u => u.Save(It.IsAny<ConsoleApp2.User.Domain.User>()))
                            .Returns(Task.CompletedTask);
 
-            _userCreator = new UserCreator(_mediator.Object, _userRepository.Object);
+            var eventBus = new EventBus(_mediator.Object);
+            _userCreator = new UserCreator(eventBus, _userRepository.Object);
         }
 
 
-        [TestMethod]
+        [Test]
         public async Task Event_user_created_been_published_after_user_created()
         {
             UserId userId = new UserId("alejandro.gonzalez@sustainalytics.com");

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace ConsoleApp2.User.Domain
+namespace ConsoleApp2.User.Domain.Queries
 {
     public class UserFinder
     {
@@ -16,7 +12,7 @@ namespace ConsoleApp2.User.Domain
 
         public async Task<User> GetUserById(string id)
         {
-            var user = await _userRepository.GetUserById(id).ConfigureAwait(false);
+            var user = await _userRepository.Find(id).ConfigureAwait(false);
             if(user == null)
             {
                 throw new UserNotFound(id);

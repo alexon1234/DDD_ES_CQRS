@@ -1,20 +1,23 @@
-﻿using ConsoleApp2.User.Domain;
-using MediatR;
+﻿using ConsoleApp2.Shared.Domain.Events;
+using ConsoleApp2.User.Domain.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp2.Notify.Domain
 {
-    public class NotifyUserCreatedHandler : INotificationHandler<UserCreatedEvent>
+    public class NotifyUserCreatedHandler : IEventHandler<UserCreatedEvent>, IEventHandler<UserNameUpdated>
     {
 
         public Task Handle(UserCreatedEvent notification, CancellationToken cancellationToken)
         {
             Console.WriteLine($"User is created { notification.Id} - { notification.Name }");
+            return Task.CompletedTask;
+        }
+
+        public Task Handle(UserNameUpdated notification, CancellationToken cancellationToken)
+        {
+            Console.WriteLine($"User {notification.UserId} from {notification.PreviousName} to {notification.NewName}");
             return Task.CompletedTask;
         }
     }

@@ -1,6 +1,5 @@
-﻿
-using ConsoleApp2.Shared.Domain;
-using ConsoleApp2.Shared.Domain.AggregateRoot;
+﻿using ConsoleApp2.Shared.Domain.Aggregates;
+using ConsoleApp2.User.Domain.Events;
 
 namespace ConsoleApp2.User.Domain
 {
@@ -19,7 +18,7 @@ namespace ConsoleApp2.User.Domain
 
         public User(UserId id, string name)
         {
-            Id = id.ToString();
+            Id = id.Value;
             Name = name;
         }
 
@@ -31,5 +30,13 @@ namespace ConsoleApp2.User.Domain
 
             return user;
         }
+
+        public virtual void UpdateName(string name)
+        {
+            Record(new UserNameUpdated(Id, Name, name));
+            Name = name;
+        }
+
+
     }
 }

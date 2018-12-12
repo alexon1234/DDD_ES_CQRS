@@ -1,5 +1,5 @@
-﻿using ConsoleApp2.User.Domain;
-using MediatR;
+﻿using ConsoleApp2.Shared.Domain.Events;
+using ConsoleApp2.User.Domain;
 using System.Threading.Tasks;
 using UserClass = ConsoleApp2.User.Domain.User;
 
@@ -8,9 +8,9 @@ namespace ConsoleApp2.User.Application
     public class UserCreator
     {
         private readonly IUserRepository _userRepository;
-        private readonly IMediator _mediator;
+        private readonly IEventBus _mediator;
 
-        public UserCreator(IMediator mediator, IUserRepository userRepository)
+        public UserCreator(IEventBus mediator, IUserRepository userRepository)
         {
             _mediator = mediator;
             _userRepository = userRepository;
@@ -19,8 +19,8 @@ namespace ConsoleApp2.User.Application
         public async Task CreateUser(UserId id, string name)
         {
             var user = UserClass.Create(id, name);
-            await _userRepository.CreateUser(user);
-            user.PullDomainEvents().ForEach(n => _mediator.Publish(n));
+            await _userRepository.Save(user);
+            await _mediator.Publish(user.PullDomainEvents());
         }
     }
 }

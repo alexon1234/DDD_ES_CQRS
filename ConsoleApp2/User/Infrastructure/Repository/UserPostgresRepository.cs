@@ -23,17 +23,17 @@ namespace ConsoleApp2.User.Repository
             _sessionFactory = _configuration.BuildSessionFactory();
         }
 
-        public async Task CreateUser(Domain.User user)
+        public async Task Save(Domain.User user)
         {
             using (var session = _sessionFactory.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
-                await session.SaveAsync(user);
+                await session.SaveOrUpdateAsync(user);
                 await transaction.CommitAsync();
             }
         }
 
-        public async Task<Domain.User> GetUserById(string id)
+        public async Task<Domain.User> Find(string id)
         {
             using (var session = _sessionFactory.OpenSession())
             {

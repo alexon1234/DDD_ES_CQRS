@@ -1,6 +1,6 @@
 ﻿using ConsoleApp2.User.Domain;
 using System.Threading.Tasks;
-using DomainUserFinder =  ConsoleApp2.User.Domain.UserFinder;
+using DomainUserFinder =  ConsoleApp2.User.Domain.Queries.UserFinder;
 
 namespace ConsoleApp2.User.Application
 {

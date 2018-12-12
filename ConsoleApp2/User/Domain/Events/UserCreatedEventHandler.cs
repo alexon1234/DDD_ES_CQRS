@@ -1,30 +1,25 @@
-﻿using ConsoleApp2.User.Domain.Queries;
-using MediatR;
+﻿using ConsoleApp2.Shared.Domain.Events;
+using ConsoleApp2.Shared.Domain.Queries;
+using ConsoleApp2.User.Domain.Queries;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2.User.Domain.EventHandler
+namespace ConsoleApp2.User.Domain.Events
 {
-    public class UserCreatedEventHandler : INotificationHandler<UserCreatedEvent>
+    public class UserCreatedEventHandler : IEventHandler<UserCreatedEvent>
     {
-        private readonly IMediator _mediator;
+        private readonly IQueryBus _queryBus;
 
-        public UserCreatedEventHandler(IMediator mediator)
+        public UserCreatedEventHandler(IQueryBus queryBus)
         {
-            _mediator = mediator;
+            _queryBus = queryBus;
         }
 
         public Task Handle(UserCreatedEvent notification, CancellationToken cancellationToken)
         {
             Console.WriteLine($"UserCreatedEventHandler { notification.Id} - { notification.Name }");
-            var userByIdQueryAsyncResult = _mediator.Send(new UserByIdQueryAsync()).Result;
-
-
+            var userByIdQueryAsyncResult = _queryBus.Send<UserByIdQueryAsync, UserByIdQueryAsyncResult>(new UserByIdQueryAsync()).Result;
 
             return Task.CompletedTask;
         }
