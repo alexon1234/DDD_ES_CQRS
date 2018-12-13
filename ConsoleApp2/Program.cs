@@ -23,7 +23,6 @@ namespace ConsoleApp2
                 var userId = new UserId("testUser6@gmail.com");
                 scope.Resolve<UserCreator>().CreateUser(userId, "Previous User").Wait();
             }
-            
             Console.ReadKey();
 
         }
@@ -32,10 +31,9 @@ namespace ConsoleApp2
             string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
 
             var builder = new ContainerBuilder();
-            builder
-              .RegisterType<Mediator>()
-              .As<IMediator>()
-              .InstancePerLifetimeScope();
+            builder.RegisterType<Mediator>()
+                   .As<IMediator>()
+                   .InstancePerLifetimeScope();
 
             // request & notification handlers
             builder.Register<ServiceFactory>(context =>
@@ -46,9 +44,9 @@ namespace ConsoleApp2
 
             builder.RegisterType<UserUpdateName>();
             builder.RegisterType<UserCreator>();
-            builder.RegisterType<NotifyUserCreatedHandler>().AsImplementedInterfaces().InstancePerDependency();  
-            builder.Register(c => new EventBus(c.Resolve<IMediator>())).As<IEventBus>().SingleInstance();
-            builder.Register(_ => new UserPostgresRepository(connectionString)).As<IUserRepository>().SingleInstance();
+            builder.RegisterType<NotifyUserCreatedHandler>().AsImplementedInterfaces().InstancePerDependency();
+            builder.Register(c => new EventBus(c.Resolve<IMediator>())).As<IEventBus>();
+            builder.Register(_ => new UserPostgresRepository(connectionString)).As<IUserRepository>();
 
             return builder.Build();
         }
