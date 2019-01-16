@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>UnitTestProject1</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>7f56dc78-01a4-48d8-a9a6-caf254fbd06e</ProjectGuid>
+  <FullPath>C:\Users\alejandro.gonzalez\source\repos\ConsoleApp2\UnitTestProject1\UnitTestProject1.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\Users\alejandro.gonzalez\source\repos\ConsoleApp2\.sonarqube\out\1\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings />
+  <Configuration>Release</Configuration>
+  <Platform>AnyCPU</Platform>
+</ProjectInfo>

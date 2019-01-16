@@ -1,0 +1,1 @@
+4(User/Infrastructure/Models/CompanyMap.cs 2csXhr4ConsoleApp2/User/Infrastructure/Models/CompanyMap.cs

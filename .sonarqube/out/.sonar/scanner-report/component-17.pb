@@ -1,0 +1,1 @@
+&Shared/Domain/Queries/IQueryHandler.cs 2csX	hr2ConsoleApp2/Shared/Domain/Queries/IQueryHandler.cs

@@ -1,0 +1,1 @@
+(User/Domain/Queries :'*+0rConsoleApp2/User/Domain/Queries

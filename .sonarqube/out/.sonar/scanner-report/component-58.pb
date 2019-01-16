@@ -1,0 +1,1 @@
+:%User/Infrastructure/Models/UserMap.cs 2csXhr1ConsoleApp2/User/Infrastructure/Models/UserMap.cs

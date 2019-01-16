@@ -1,0 +1,1 @@
+Shared/Infrastructure/Command :r)ConsoleApp2/Shared/Infrastructure/Command

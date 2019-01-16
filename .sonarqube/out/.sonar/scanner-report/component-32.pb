@@ -1,0 +1,1 @@
+ Shared/Domain :#.-rConsoleApp2/Shared/Domain

@@ -1,0 +1,1 @@
+/&User/Domain/Events/UserCreatedEvent.cs 2csXhr2ConsoleApp2/User/Domain/Events/UserCreatedEvent.cs

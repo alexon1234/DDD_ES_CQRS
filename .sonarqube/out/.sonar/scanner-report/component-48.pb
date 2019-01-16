@@ -1,0 +1,1 @@
+0!User/Domain/Queries/UserFinder.cs 2csXhr-ConsoleApp2/User/Domain/Queries/UserFinder.cs

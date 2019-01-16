@@ -1,0 +1,1 @@
+Shared/Domain/Command :	r!ConsoleApp2/Shared/Domain/Command

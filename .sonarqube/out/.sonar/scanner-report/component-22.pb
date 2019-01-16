@@ -1,0 +1,1 @@
+)Shared/Infrastructure/Queries/QueryBus.cs 2csXhr5ConsoleApp2/Shared/Infrastructure/Queries/QueryBus.cs

@@ -1,0 +1,1 @@
+Shared/Domain/Events :r ConsoleApp2/Shared/Domain/Events

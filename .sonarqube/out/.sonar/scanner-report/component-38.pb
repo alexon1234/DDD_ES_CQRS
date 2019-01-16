@@ -1,0 +1,1 @@
+&%User/Domain/Events/UserNameUpdated.cs 2csXhr1ConsoleApp2/User/Domain/Events/UserNameUpdated.cs

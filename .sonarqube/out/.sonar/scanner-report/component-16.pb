@@ -1,0 +1,1 @@
+Shared/Infrastructure/Events :r(ConsoleApp2/Shared/Infrastructure/Events

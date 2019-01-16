@@ -1,0 +1,1 @@
+Shared/ValueObject :rConsoleApp2/Shared/ValueObject

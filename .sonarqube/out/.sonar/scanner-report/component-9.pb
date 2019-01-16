@@ -1,0 +1,1 @@
+	(Shared/Domain/Command/ICommandHandler.cs 2csXhr4ConsoleApp2/Shared/Domain/Command/ICommandHandler.cs

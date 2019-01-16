@@ -1,0 +1,1 @@
+%Shared/Domain/Events/IEventHandler.cs 2csXhr1ConsoleApp2/Shared/Domain/Events/IEventHandler.cs

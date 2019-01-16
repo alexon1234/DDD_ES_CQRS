@@ -1,0 +1,1 @@
+<Properties/AssemblyInfo.cs 2csX%hr&ConsoleApp2/Properties/AssemblyInfo.cs

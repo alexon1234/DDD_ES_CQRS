@@ -1,0 +1,1 @@
+Shared/Domain/Queries :r!ConsoleApp2/Shared/Domain/Queries

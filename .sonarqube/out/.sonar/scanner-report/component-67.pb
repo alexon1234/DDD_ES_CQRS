@@ -1,0 +1,1 @@
+CUser/Infrastructure/Repository :@r*ConsoleApp2/User/Infrastructure/Repository

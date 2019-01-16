@@ -1,0 +1,1 @@
+=User/Domain/IUserRepository.cs 2csXhr*ConsoleApp2/User/Domain/IUserRepository.cs

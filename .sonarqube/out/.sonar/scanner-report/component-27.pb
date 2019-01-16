@@ -1,0 +1,1 @@
+Shared/Infrastructure/Queries :r)ConsoleApp2/Shared/Infrastructure/Queries

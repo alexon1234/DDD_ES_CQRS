@@ -1,0 +1,1 @@
+"Shared/Domain/Queries/IQueryBus.cs 2csX	hr.ConsoleApp2/Shared/Domain/Queries/IQueryBus.cs

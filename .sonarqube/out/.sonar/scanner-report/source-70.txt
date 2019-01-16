@@ -1,0 +1,36 @@
+using System.Threading.Tasks;
+using ConsoleApp2.User.Domain;
+using Moq;
+using NUnit.Framework;
+using UserFinder = ConsoleApp2.User.Application.UserFinder;
+
+namespace UnitTestProject1.User.Application
+{
+    public class UserFinderTest
+    {
+        private readonly UserFinder _userFinder;
+        private readonly Mock<IUserRepository> _userRepository;
+
+        public UserFinderTest()
+        {
+            _userRepository = new Mock<IUserRepository>();
+            _userFinder = new UserFinder(_userRepository.Object);
+        }
+
+
+        [Test]
+        public async Task Find_UserAsync()
+        {
+            var userId = new UserId("alexdelamo06@gmail.com");
+            const string username = "Alex";
+
+            var expectedUser = new ConsoleApp2.User.Domain.User(userId, username);
+            _userRepository.Setup(u => u.Find(userId.Value)).Returns(Task.FromResult(expectedUser));
+
+            var result = await _userFinder.GetUserById(userId.Value);
+
+            Assert.AreEqual(expectedUser, result);
+
+        }
+    }
+}

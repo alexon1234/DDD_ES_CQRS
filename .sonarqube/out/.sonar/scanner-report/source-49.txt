@@ -1,0 +1,37 @@
+using ConsoleApp2.Shared.ValueObject;
+using System;
+
+
+namespace ConsoleApp2.User.Domain
+{
+    public class UserId: StringValueObject
+    {
+        public UserId(string id): base(id)
+        {
+            Validate(id);
+        }
+
+
+        private void Validate(string id)
+        {
+            if (!IsEmail(id))
+            {
+                throw new ArgumentException("The User Id is not an email");
+            }
+        }
+
+        private bool IsEmail(string id)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(id);
+                return addr.Address == id;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+    }
+}

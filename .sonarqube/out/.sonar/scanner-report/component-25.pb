@@ -1,0 +1,1 @@
+'Shared/ValueObject/StringValueObject.cs 2csXhr3ConsoleApp2/Shared/ValueObject/StringValueObject.cs

@@ -1,0 +1,1 @@
++Shared/Infrastructure/Command/CommandBus.cs 2csXhr7ConsoleApp2/Shared/Infrastructure/Command/CommandBus.cs
